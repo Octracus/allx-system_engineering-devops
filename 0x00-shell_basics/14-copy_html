@@ -1,2 +1,5 @@
 #!/bin/bash
-find . -maxdepth 1 -name "*.html" -type f -exec cp -u --parents '{}' .. \;
+src_dir="."
+target_dir=".."
+
+find "$src_dir" -maxdepth 1 -name "*.html" -newer "$target_dir" -exec cp -u -t "$target_dir" {} +
